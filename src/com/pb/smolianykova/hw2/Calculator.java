@@ -1,28 +1,34 @@
 package com.pb.smolianykova.hw2;
 
-public class Calculator {
-    public static void main(String args[]){
-        //char grade = args[0].charAt(0);
-        char grade = 'C';
+import java.util.Scanner;
 
-        switch(grade)
-        {
-            case 'A' :
-                System.out.println("Отлично!");
+public class Calculator {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Введите первое число: ");
+        int leftoperand = in.nextInt();
+        System.out.println("Введите второе число: ");
+        int rightoperand = in.nextInt();
+        System.out.println("Введите знак: ");
+        String sign = in.next();
+        switch (sign) {
+            case "/" :
+                if (rightoperand == 0) {
+                    System.out.println("Кицька Чернушка огорчена и подавлена. На ноль не делим");
+                }
+                System.out.println("Ваш ответ" + (leftoperand / rightoperand));
                 break;
-            case 'B' :
-            case 'C' :
-                System.out.println("Отлично выполнено");
+            case "+" :
+                System.out.println("Ваш ответ" + (leftoperand + rightoperand));
                 break;
-            case 'D' :
-                System.out.println("Вы прошли");
-            case 'F' :
-                System.out.println("Лучше попробуйте снова");
+            case "-" :
+                System.out.println("Ваш ответ" + (leftoperand - rightoperand));
                 break;
-            default :
-                System.out.println("Неверная оценка");
+            case "*" :
+                System.out.println("Ваш ответ" + (leftoperand * rightoperand));
+                break;
         }
-        System.out.println("Ваша оценка " + grade);
-    }
 }
 }
+
+
