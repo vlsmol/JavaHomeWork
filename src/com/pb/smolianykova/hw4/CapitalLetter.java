@@ -1,5 +1,9 @@
 package com.pb.smolianykova.hw4;
 
+import java.util.Locale;
+import java.util.Scanner;
+
+
 public class CapitalLetter {
     public static void main(String[] args)
     {
