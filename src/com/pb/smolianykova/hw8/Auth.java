@@ -1,6 +1,5 @@
 package com.pb.smolianykova.hw8;
 import java.util.Objects;
-import java.util.Scanner;
 
 public class Auth {
     private String userLogin, userPassword;
@@ -16,28 +15,27 @@ public class Auth {
         return userPassword;
     }
 
-    public void signUp (String login, String password, String confirmPassword) {
-
-
+    public void signUp (String login, String password, String confirmPassword)
+            throws WrongLoginException {
         this.userLogin = login;
         if (Objects.equals(password, confirmPassword)) {
-            System.out.println("Пароль подтвержден.");
+            System.out.println("\nПароль подтвержден.");
             this.userPassword = password;
         } else {
-            System.out.println("Пароль не подтвержден.");
-            this.userLogin = null;
-            System.out.println("Пользователь не создан.");
+            this.userPassword = null;
+            throw new WrongLoginException(password);
         }
     }
 
-    public void signIn(String login, String password) {
-
-
+    public void signIn(String login, String password)
+            throws WrongPasswordException {
 
         if (Objects.equals(login, userLogin) && Objects.equals(password, userPassword)) {
-            System.out.println("Доступ разрешен.");
+            System.out.println("\nДоступ разрешен.");
         } else {
-            System.out.println("Неверные логин и/или пароль.");
+            System.out.println("\nДоступ запрещен.\nНеверные логин и/или пароль.");
+            throw new WrongPasswordException(password);
         }
     }
 }
+
