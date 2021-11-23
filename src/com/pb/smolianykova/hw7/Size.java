@@ -1,25 +1,23 @@
 package com.pb.smolianykova.hw7;
 
 public enum Size {
-    XSS("Детский размер",32),
-    XS("Взрослый размер",34),
-    S("Взрослый размер",36),
-    M("Взрослый размер",38),
-    L("Взрослый размер",40);
+    XXS("32"),
+    XS("34"),
+    S("36"),
+    M("38"),
+    L("40");
 
-    private int euroSize;
-    private String description;
-
-    Size (String description, int euroSize) {
-        this.euroSize = euroSize;
-        this.description = description;
+    private String num;
+    Size(String num) {
+        this.num = num;
     }
 
-    public String getDescription() {
-        return description;
-    }
+    String getEuroSize(){ return num;}
 
-    public int getEuroSize() {
-        return euroSize;
+    String getDescription(Size size) {
+        if (size == XXS) {
+            return "детский размер";
+        }
+        return "взрослый размер";
     }
 }

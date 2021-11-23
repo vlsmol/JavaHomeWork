@@ -13,7 +13,7 @@ public class FileNumbers {
         String nrFilePath = "C:\\Users\\Lenovo\\IdeaProjects\\JavaHomeWork\\src\\com\\pb\\smolianykova\\hw9/numbers.txt";
         String oddPath = "C:\\Users\\Lenovo\\IdeaProjects\\JavaHomeWork\\src\\com\\pb\\smolianykova\\hw9/odd-numbers.txt";
 
-        int[] array = new int[size];
+        int[] array = new int[size]; // исходный массив
         Random random = new Random();
         for (int i = 0; i < array.length; i++) {
             array[i] = random.nextInt((size-1)) + 1;
@@ -31,7 +31,7 @@ public class FileNumbers {
         Path path = Paths.get(file);
 
         try (BufferedReader reader = Files.newBufferedReader(path)) {
-            String lineFull = " ", line;
+            String lineFull = "", line;
             while((line = reader.readLine()) != null) {
                 lineFull = String.join(" ", lineFull, line);
             }
@@ -45,7 +45,7 @@ public class FileNumbers {
         }
     }
 
-    private static int[] toNumArray(String line, int size) { // конвертация строки в числовой массив
+    private static int[] toNumArray(String line, int size) {
         String [] split = line.split(" ");
 
         int[] intArr = new int[size];
